@@ -25,15 +25,23 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/purpose.css",
               "src/assets/libs/@fortawesome/fontawesome-free/css/all.min.css",
+              "src/assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.css",
+              "src/assets/libs/animate.css/animate.min.css",
+              "src/assets/libs/swiper/dist/css/swiper.min.css",
+			  "src/assets/libs/select2/dist/css/select2.min.css",
+			  "src/assets/libs/flatpickr/dist/flatpickr.min.css",
+              "src/assets/css/purpose.css",
             ],
             "scripts": [
 			"src/assets/js/purpose.core.js",
-			"src/assets/js/purpose.js",
-			"src/assets/js/demo.js",
 			"src/assets/libs/jquery-countdown/dist/jquery.countdown.min.js",
-			
+			"src/assets/libs/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
+			"src/assets/libs/select2/dist/js/select2.min.js",
+			"src/assets/libs/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js",
+			"src/assets/libs/flatpickr/dist/flatpickr.min.js",
+			"src/assets/js/purpose.js",
+			"src/assets/js/demo.js",			
 			]
           },
           "configurations": {

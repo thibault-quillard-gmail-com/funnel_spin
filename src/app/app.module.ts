@@ -14,6 +14,14 @@ import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ProfileComponent } from './profile/profile.component';
 import { Page404Component } from './page404/page404.component';
+import { ChangePasswordComponent } from './profile/change-password/change-password.component';
+import { ProfileSidebarComponent } from './profile/profile-sidebar/profile-sidebar.component';
+import { BillingdetailsComponent } from './profile/billingdetails/billingdetails.component';
+import { ProfileTopbarComponent } from './profile/profile-topbar/profile-topbar.component';
+import { PaymentHistoryComponent } from './profile/payment-history/payment-history.component';
+import { WheelsComponent } from './profile/wheels/wheels.component';
+import { AddnewWheelsComponent } from './profile/wheels/addnew-wheels/addnew-wheels.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +31,15 @@ import { Page404Component } from './page404/page404.component';
     SignupComponent,
     ForgotPasswordComponent,
     ProfileComponent,
-    Page404Component
+    Page404Component,
+    ChangePasswordComponent,
+    ProfileSidebarComponent,
+    BillingdetailsComponent,
+    ProfileTopbarComponent,
+    PaymentHistoryComponent,
+    WheelsComponent,
+    AddnewWheelsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
