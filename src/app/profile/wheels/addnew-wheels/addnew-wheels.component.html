@@ -2,67 +2,39 @@
     <!-- Topbar -->
     
     <!-- Main navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg navbar-dark bg-dark" id="navbar-main">
-      <div class="container px-lg-0">
-        <!-- Logo -->
-        <a class="navbar-brand mr-lg-5" href="../../index.html">
+    <nav class="navbar navbar-horizontal navbar-expand-lg navbar-dark bg-primary mt-4">
+    <div class="container">
+          <a class="navbar-brand mr-lg-5" routerLink="/profile">
           <img alt="Image placeholder" src="../../assets/img/brand/white.png" id="navbar-logo" style="height: 50px;">
-        </a>
-        <!-- Navbar collapse trigger -->
-        <button class="navbar-toggler pr-0" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Navbar nav -->
-        <div class="collapse navbar-collapse" id="navbar-main-collapse">
-          <ul class="navbar-nav align-items-lg-center">
-            <!-- Home - Overview  -->
-            <li class="nav-item ">
-              <a class="nav-link" href="../../index.html">My Wheels</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-            <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi, Name</a>
-              <div class="dropdown-menu dropdown-menu-right dropdown-menu-sm dropdown-menu-arrow p-0">
-                <ul class="list-group list-group-flush">
-                  <li>
-                    <a href="../../docs/index.html" class="list-group-item list-group-item-action" role="button">
-                      <div class="media d-flex align-items-center">
-                        <!-- Media body -->
-                        <div class="media-body ml-3">
-                          <h6 class="mb-1">Profile</h6>
-                          
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../../docs/index.html" class="list-group-item list-group-item-action" role="button">
-                      <div class="media d-flex align-items-center">
-                        <!-- Media body -->
-                        <div class="media-body ml-3">
-                          <h6 class="mb-1">Subscription</h6>                          
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../../docs/index.html" class="list-group-item list-group-item-action" role="button">
-                      <div class="media d-flex align-items-center">
-                        <!-- Media body -->
-                        <div class="media-body ml-3">
-                          <h6 class="mb-1">Logout</h6>                          
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
+        </a>        
+        <div class="collapse navbar-collapse" id="navbar-primary">
+            <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/manage-wheels"> My wheels </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/profile">Setting </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Notifications </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Help </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="#" id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi, Name</a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-sm" aria-labelledby="navbar-primary_dropdown_1">
+                        <a class="dropdown-item" routerLink="/profile">Profile</a>
+                        <a class="dropdown-item" routerLink="/subscription">Subscription</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" routerLink="/login">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
   </header> 
  <div class="main-content">
     <!-- Header (account) -->
@@ -75,9 +47,32 @@
           
             <!-- Account navigation -->
             <div class="d-flex">
-              <div class="btn-group btn-group-nav shadow" role="group" aria-label="Basic example">
-                <div class="btn-group" role="group">
-				  <a href="checkout-cart.html" class="btn btn-white btn-icon">
+               <div class="btn-group btn-group-nav shadow" role="group" aria-label="Basic example">
+			    <ul class="nav nav-tabs" id="myTab" role="tablist">
+				  <li class="nav-item">
+					<a class="nav-link active btn btn-white btn-icon" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true"> <span class="btn-inner--icon"></span>
+                    <span class="btn-inner--text d-none d-md-inline-block">General</span></a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link btn btn-white btn-icon" id="design-tab" data-toggle="tab" href="#design" role="tab" aria-controls="design" aria-selected="true"> <span class="btn-inner--icon"></span>
+                    <span class="btn-inner--text d-none d-md-inline-block">Design</span></a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link btn btn-white btn-icon" id="triggers-tab" data-toggle="tab" href="#triggers" role="tab" aria-controls="triggers" aria-selected="true"> <span class="btn-inner--icon"></span>
+                    <span class="btn-inner--text d-none d-md-inline-block">Triggers</span></a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link btn btn-white btn-icon" id="intigration-tab" data-toggle="tab" href="#intigration" role="tab" aria-controls="intigration" aria-selected="true"> <span class="btn-inner--icon"></span>
+                    <span class="btn-inner--text d-none d-md-inline-block">intigration</span></a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link btn btn-white btn-icon" id="result-tab" data-toggle="tab" href="#result" role="tab" aria-controls="result" aria-selected="true"> <span class="btn-inner--icon"></span>
+                    <span class="btn-inner--text d-none d-md-inline-block">Result-snippet</span></a>
+				  </li>
+				 
+				</ul>
+               <!--  <div class="btn-group" role="group">
+				  <a href="checkout-cart.html" class="btn btn-white btn-icon .nav-item active">
                     <span class="btn-inner--icon"></span>
                     <span class="btn-inner--text d-none d-md-inline-block">General</span>
                   </a>
@@ -97,53 +92,191 @@
                     <span class="btn-inner--icon"></span>
                     <span class="btn-inner--text d-none d-md-inline-block">Result-snippet</span>
                   </a>
-                </div>
-              </div>
+                </div> -->
+              </div> 
+			 
+
             </div>
           </div>
         </div>
       </div>
     </header>
     <section class="slice">
-      <div class="container">
+	
+	<div class="container">
         <div class="row row-grid">
-          <div class="col-lg-8">
-            <form>
-              <!-- Title -->             
-              <div class="mt-1">
-                <!-- Title -->
-                <div class="actions-toolbar py-2 mb-4">
-                  <h5 class="mb-1">Name your wheel</h5>
-                  <p class="text-sm text-muted mb-0">for internal use only</p>
-                </div>
-                <!-- New address form -->
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <input class="form-control" type="text" placeholder="Enter the name of your wheel">
-                    </div>
-                  </div> 
-				  <div class="col-md-12">
-                    <div class="form-group">
-                      <select class="form-control" data-toggle="select">
-                      <option value="wheelspinning" selected>Wheel spinning</option>
-                    </select>
-                    </div>
-                  </div>
-				  <div class="col-md-12">
-                    <div class="form-group">
-                      <select class="form-control" data-toggle="select">
-                      <option value="email" selected>Email</option>
-                    </select>
-                    </div>
-                  </div>
-                </div>
-              </div>              
-              <div class="mt-1 text-right">
-                <button type="button" class="btn btn-sm btn-primary">Next step</button>
-                <button type="button" class="btn btn-sm btn-success">Publish</button>
-              </div>
-            </form>
+			<div class="col-lg-8">
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+				   <form>
+					  <!-- Title -->             
+					  <div class="mt-1">
+						<!-- Title -->
+						<div class="actions-toolbar py-2 mb-4">
+						  <h5 class="mb-1">Name your wheel</h5>
+						  <p class="text-sm text-muted mb-0">for internal use only</p>
+						</div>
+						<!-- New address form -->
+						<div class="row">
+						  <div class="col-md-12">
+							<div class="form-group">
+							  <input class="form-control" type="text" placeholder="Enter the name of your wheel">
+							</div>
+						  </div> 
+						  <div class="col-md-12">
+							<div class="form-group">
+							  <select class="form-control" data-toggle="select">
+							  <option value="wheelspinning" selected>Wheel spinning</option>
+							</select>
+							</div>
+						  </div>
+						  <div class="col-md-12">
+							<div class="form-group">
+							  <select class="form-control" data-toggle="select">
+							  <option value="email" selected>Email</option>
+							</select>
+							</div>
+						  </div>
+						</div>
+					  </div>              
+					  <div class="mt-1 text-right">
+						<button type="button" class="btn btn-sm btn-primary">Next step</button>
+						<button type="button" class="btn btn-sm btn-success">Publish</button>
+					  </div>
+					</form>
+					</div>
+			  
+					<div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
+					<div class="row">
+					<div class="col-md-6">
+					<div class="card">
+						<div class="card-header d-flex justify-content-between align-items-center">
+							<div>
+								<h5 class="card-title mb-0">Edit Wheel</h5>
+							</div>
+						</div>
+						<div class="card-body">
+							<label>Color</label>
+							<div class="card-text row">
+								<div class="col-md-3"><input type="color" name="favcolor" value="#28d7ce"></div>	
+								<div class="col-md-3"><input type="color" name="favcolor" value="#4d73b3"></div>	
+								<div class="col-md-3"><input type="color" name="favcolor" value="#f3e856"></div>	
+								<div class="col-md-3"><input type="color" name="favcolor" value="#ff0000"></div>
+							</div>
+								<h5 class="card-title mb-0 mt-2">Slices</h5>
+							
+							<div class="row">
+								<div class="col-md-8">
+								<button class="btn-sm btn-info" type="button" data-toggle="modal" data-target="#modal-change-username"><i class="fas fa-edit"></i> Configure slices</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="col-md-5">
+					<form>
+					  <!-- Title -->             
+					  <div class="mt-1">
+							<h4 class="mb-1 text-center">Do you want to win?</h4>
+							<p class="text-sm text-muted mb-0 text-center">We dont sell your data</p>
+							<div class="form-group mt-3">
+							  <input class="form-control" type="text" placeholder="Email">
+							</div>
+							<div class="form-group">
+							  <button class="form-control btn btn-info" type="button">Yes, I want to win</button>
+							</div>
+					  </div> 
+					</form>
+					</div>
+					</div>
+					<!-- 
+					 -->
+					</div>
+			  
+					<div class="tab-pane fade" id="triggers" role="tabpanel" aria-labelledby="triggers-tab">
+					<form>
+					  <!-- Title -->             
+					  <div class="mt-1">
+						<!-- Title -->
+						<div class="actions-toolbar py-2 mb-4">
+						  <h5 class="mb-1">Triggers</h5>
+						</div>
+						<!-- New address form -->
+						<div class="row">
+						  <div class="col-md-4">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" checked class="custom-control-input" id="check-privacy">
+								<label class="custom-control-label" for="check-privacy">I want to show</label>
+							</div>
+						  </div> 
+						  <div class="col-md-5">
+							<div class="form-group">
+							  <select class="form-control" data-toggle="select">
+							  <option value="wheelspinning" selected>After 10 seconds</option>
+							</select>
+							</div>
+						  </div>
+						</div>
+						<!-- <div class="row">
+						  <div class="col-md-4">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="check-privacy">
+								<label class="custom-control-label" for="check-privacy">Show after scrolling</label>
+							</div>
+						  </div> 
+						  <div class="col-md-5">
+							<div class="form-group">
+							  <select class="form-control" data-toggle="select">
+							  <option value="wheelspinning" selected>select</option>
+							</select>
+							</div>
+						  </div>
+						</div> -->
+						<div class="row">
+						  <div class="col-md-4">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" checked class="custom-control-input" id="check-s">
+								<label class="custom-control-label" for="check-s">Display on exit-intent</label>
+							</div>
+						  </div> 
+						</div>
+						<div class="row">
+						  <div class="col-md-6 pt-3">
+							<div class="form-group">
+								<label class="form-control-label">I want to show at most</label>
+								<select class="form-control">
+									
+									<option selected>Every Day</option>
+								</select>
+							</div>
+						  </div> 
+						</div>
+					  </div>              
+					  <div class="mt-1 text-right">
+						<button type="button" class="btn btn-sm btn-primary">Next step</button>
+						<button type="button" class="btn btn-sm btn-success">Publish</button>
+					  </div>
+					</form>
+					
+					</div>
+			  
+					<div class="tab-pane fade" id="intigration" role="tabpanel" aria-labelledby="intigration-tab">
+					 <div class="col-md-12">
+							<div class="form-group">
+							  <input class="form-control" type="text" value="Your code is here please click on button to copy" #userinput placeholder="Enter the name of your wheel">
+							  <br/>
+							  <button type="button" (click)="copyInputMessage(userinput)" class="btn btn-sm btn-primary">Copy Code</button>
+							</div>
+						  </div> 					
+					</div>
+			  
+					<div class="tab-pane fade" id="result" role="tabpanel" aria-labelledby="result-tab">
+					<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+          [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+					
+					</div>
+				</div>
           </div>
           
         </div>
@@ -151,3 +284,155 @@
     </section>
   </div>
   <app-footer></app-footer>
+  
+  <div class="modal fade" id="modal-change-username" tabindex="-1" role="dialog" aria-labelledby="modal-change-username" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <form>
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <div class="modal-title d-flex align-items-center" id="modal-title-change-username">
+                          <div>
+                            <div class="icon icon-sm icon-shape icon-info rounded-circle shadow mr-3">
+                              <i class="fas fa-user"></i>
+                            </div>
+                          </div>
+                          <div>
+                            <h6 class="mb-0">Change username</h6>
+                          </div>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="row">
+                          
+                          <div class="table-responsive">
+							<table class="table align-items-center"><thead>
+								<tr>
+									<th scope="col" class="sort" data-sort="product">Label</th>
+									<th scope="col" class="sort" data-sort="price">Promo-code</th>
+									<th scope="col" class="sort" data-sort="size">Win text</th>
+									<th scope="col">Win ratio %</th>
+									<th scope="col">Action</th>
+								</tr>
+							</thead>
+							<tbody class="list">
+								
+								<tr>
+									<th scope="row">
+										<div class="media align-items-center">	
+										<span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">Wheel label</span>
+										</span>
+										</div>
+									</th>
+									<td class="price">
+										WHL100
+									</td>
+									<td>
+										<span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">No lucky today</span>
+										</span>
+									</td>
+									<td>
+										<span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">2</span>
+										</span>
+									</td>
+									<td class="text-right">
+										<!-- Actions -->
+										<div class="actions ml-3">
+											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Quick view">
+												<i class="fas fa-external-link-alt"></i>
+											</a>
+											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Move to trash">
+												<i class="fas fa-times"></i>
+											</a>
+										</div>
+									</td>										
+								</tr>
+								<tr>
+									<th scope="row">
+										<div class="media align-items-center">	
+										<span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">Wheel label</span>
+										</span>
+										</div>
+									</th>
+									<td class="price">
+										WHL100
+									</td>
+									<td>
+										<span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">No lucky today</span>
+										</span>
+									</td>
+									<td>
+										<span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">2</span>
+										</span>
+									</td>
+									<td class="text-right">
+										<!-- Actions -->
+										<div class="actions ml-3">
+											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Quick view">
+												<i class="fas fa-external-link-alt"></i>
+											</a>
+											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Move to trash">
+												<i class="fas fa-times"></i>
+											</a>
+										</div>
+									</td>										
+								</tr>
+								<tr>
+									<th scope="row">
+										<div class="media align-items-center">	
+										<span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">Wheel label</span>
+										</span>
+										</div>
+									</th>
+									<td class="price">
+										WHL100
+									</td>
+									<td>
+										<span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">No lucky today</span>
+										</span>
+									</td>
+									<td>
+										<span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">2</span>
+										</span>
+									</td>	
+									<td class="text-right">
+										<!-- Actions -->
+										<div class="actions ml-3">
+											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Quick view">
+												<i class="fas fa-external-link-alt"></i>
+											</a>
+											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Move to trash">
+												<i class="fas fa-times"></i>
+											</a>
+										</div>
+									</td>									
+								</tr>
+								</tbody>
+							</table>
+						</div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>

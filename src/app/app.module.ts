@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpModule }    from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';   /* App routings */
+import { ChartsModule } from 'ng2-charts';
+
 
 import { AuthGuard } from './auth.guard';    /* Auth Service */
 import { Configuration } from './app.configuration';
@@ -22,6 +24,7 @@ import { PaymentHistoryComponent } from './profile/payment-history/payment-histo
 import { WheelsComponent } from './profile/wheels/wheels.component';
 import { AddnewWheelsComponent } from './profile/wheels/addnew-wheels/addnew-wheels.component';
 import { FooterComponent } from './footer/footer.component';
+import { SubscriptionsComponent } from './profile/subscriptions/subscriptions.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +42,15 @@ import { FooterComponent } from './footer/footer.component';
     PaymentHistoryComponent,
     WheelsComponent,
     AddnewWheelsComponent,
-    FooterComponent
+    FooterComponent,
+    SubscriptionsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 	HttpClientModule,
-	HttpModule
+	HttpModule,
+	ChartsModule
   ],
   providers: [AuthGuard,Configuration],
   bootstrap: [AppComponent]

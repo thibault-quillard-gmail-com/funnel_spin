@@ -13,6 +13,7 @@ import { BillingdetailsComponent } from './profile/billingdetails/billingdetails
 import { PaymentHistoryComponent } from './profile/payment-history/payment-history.component';
 import { WheelsComponent } from './profile/wheels/wheels.component';
 import { AddnewWheelsComponent } from './profile/wheels/addnew-wheels/addnew-wheels.component';
+import { SubscriptionsComponent } from './profile/subscriptions/subscriptions.component';
 
 const routes: Routes = [
 {path:'', component:LandingComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
 {path:'payment-history', component:PaymentHistoryComponent, canActivate: [AuthGuard]},
 {path:'manage-wheels', component:WheelsComponent, canActivate: [AuthGuard]},
 {path:'addnew-wheels', component:AddnewWheelsComponent, canActivate: [AuthGuard]},
+{path:'subscription', component:SubscriptionsComponent, canActivate: [AuthGuard]},
 { path: '**',  component: Page404Component },
 ];
 
