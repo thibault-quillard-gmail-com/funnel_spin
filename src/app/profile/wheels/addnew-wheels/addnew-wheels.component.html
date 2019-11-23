@@ -105,9 +105,9 @@
 	
 	<div class="container">
         <div class="row row-grid">
-			<div class="col-lg-8">
+			<div class="col-lg-12">
 				<div class="tab-content" id="myTabContent">
-					<div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+					<div class="tab-pane fade show active col-md-8" id="general" role="tabpanel" aria-labelledby="general-tab">
 				   <form>
 					  <!-- Title -->             
 					  <div class="mt-1">
@@ -148,14 +148,28 @@
 			  
 					<div class="tab-pane fade" id="design" role="tabpanel" aria-labelledby="design-tab">
 					<div class="row">
-					<div class="col-md-6">
-					<div class="card">
+					<div class="col-md-4">
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+					  <li class="nav-item">
+						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Wheel</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Widget</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Success</a>
+					  </li>
+					</ul>
+					<div class="tab-content" id="myTabContent">
+					  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+					  <div class="card">
 						<div class="card-header d-flex justify-content-between align-items-center">
 							<div>
-								<h5 class="card-title mb-0">Edit Wheel</h5>
+								<h5 class="card-title mb-0"><i class="fas fa-edit"></i> Edit Wheel</h5>
 							</div>
 						</div>
 						<div class="card-body">
+							<h5>Wheel</h5>
 							<label>Color</label>
 							<div class="card-text row">
 								<div class="col-md-3"><input type="color" name="favcolor" value="#28d7ce"></div>	
@@ -167,13 +181,143 @@
 							
 							<div class="row">
 								<div class="col-md-8">
-								<button class="btn-sm btn-info" type="button" data-toggle="modal" data-target="#modal-change-username"><i class="fas fa-edit"></i> Configure slices</button>
+								<button class="btn btn-sm btn-secondary" type="button" data-toggle="modal" data-target="#modal-change-username"><i class="fas fa-edit"></i> Configure slices</button>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="table-responsive">
+									<table class="table align-items-center"><thead>
+										<tr>
+											<th><span class="badge badge-dot mr-4">Label</span></th>
+											<th><span class="badge badge-dot mr-4">Promo-code</span></th>
+										</tr>
+									</thead>
+									<tbody class="list">										
+										<tr>
+											<td>										
+												 Free Shipping
+											</td>
+											<td class="price">
+												Example
+											</td>								
+										</tr>													
+										<tr>
+											<td>										
+												 So close!
+											</td>
+											<td class="price">
+												(Losing)
+											</td>								
+										</tr>										
+										<tr>
+											<td>										
+												 10% Off
+											</td>
+											<td class="price">
+												Example
+											</td>								
+										</tr>											
+										<tr>
+											<td>										
+												 No luck today.
+											</td>
+											<td class="price">
+												(Losing)
+											</td>								
+										</tr>										
+										<tr>
+											<td>										
+												 20% Off
+											</td>
+											<td class="price">
+												Example
+											</td>								
+										</tr>											
+										<tr>
+											<td>										
+												Sorry, try again!
+											</td>
+											<td class="price">
+												(Losing)
+											</td>								
+										</tr>										
+										<tr>
+											<td>										
+												30% Off
+											</td>
+											<td class="price">
+												Example
+											</td>								
+										</tr>											
+										<tr>
+											<td>										
+												Next time!
+											</td>
+											<td class="price">
+												(Losing)
+											</td>								
+										</tr>										
+										<tr>
+											<td>										
+												40% Off 
+											</td>
+											<td class="price">
+												Example
+											</td>								
+										</tr>											
+										<tr>
+											<td>										
+												Almost!
+											</td>
+											<td class="price">
+												(Losing)
+											</td>								
+										</tr>										
+										<tr>
+											<td>										
+												50% Off 
+											</td>
+											<td class="price">
+												Example
+											</td>								
+										</tr>										
+										<tr>
+											<td>										
+												Not quite.
+											</td>
+											<td class="price">
+												(Losing)
+											</td>								
+										</tr>
+										</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
+						</div>
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><div class="card">
+						<div class="card-header d-flex justify-content-between align-items-center">
+							<div>
+								<h5 class="card-title mb-0"><i class="fas fa-edit"></i> Edit Widget</h5>
+							</div>
+						</div>
+							<div class="card-body">
+								<h5>Text</h5>
+								<div class="card-text row">
+									<ckeditor ngModel="editorValue"></ckeditor>
+								</div>
+							</div>
+						</div>
+						</div>
+						<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+						</div>
+					
 					</div>
+					<div class="col-md-4">
+					
 					</div>
-					<div class="col-md-5">
+					<div class="col-md-4">
 					<form>
 					  <!-- Title -->             
 					  <div class="mt-1">
@@ -193,7 +337,7 @@
 					 -->
 					</div>
 			  
-					<div class="tab-pane fade" id="triggers" role="tabpanel" aria-labelledby="triggers-tab">
+					<div class="tab-pane fade  col-md-8" id="triggers" role="tabpanel" aria-labelledby="triggers-tab">
 					<form>
 					  <!-- Title -->             
 					  <div class="mt-1">
@@ -260,7 +404,7 @@
 					
 					</div>
 			  
-					<div class="tab-pane fade" id="intigration" role="tabpanel" aria-labelledby="intigration-tab">
+					<div class="tab-pane fade col-md-8" id="intigration" role="tabpanel" aria-labelledby="intigration-tab">
 					 <div class="col-md-12">
 							<div class="form-group">
 							  <input class="form-control" type="text" value="Your code is here please click on button to copy" #userinput placeholder="Enter the name of your wheel">
@@ -270,7 +414,7 @@
 						  </div> 					
 					</div>
 			  
-					<div class="tab-pane fade" id="result" role="tabpanel" aria-labelledby="result-tab">
+					<div class="tab-pane fade col-md-8" id="result" role="tabpanel" aria-labelledby="result-tab">
 					<canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
           [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)"></canvas>
@@ -286,18 +430,18 @@
   <app-footer></app-footer>
   
   <div class="modal fade" id="modal-change-username" tabindex="-1" role="dialog" aria-labelledby="modal-change-username" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-dialog modal-dialog-centered  modal-xl" role="document">
                   <form>
                     <div class="modal-content">
                       <div class="modal-header">
                         <div class="modal-title d-flex align-items-center" id="modal-title-change-username">
                           <div>
-                            <div class="icon icon-sm icon-shape icon-info rounded-circle shadow mr-3">
+                            <!-- <div class="icon icon-sm icon-shape icon-info rounded-circle shadow mr-3">
                               <i class="fas fa-user"></i>
-                            </div>
+                            </div> -->
                           </div>
                           <div>
-                            <h6 class="mb-0">Change username</h6>
+                            <h6 class="mb-0">Configure wheel slices</h6>
                           </div>
                         </div>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -310,121 +454,210 @@
                           <div class="table-responsive">
 							<table class="table align-items-center"><thead>
 								<tr>
-									<th scope="col" class="sort" data-sort="product">Label</th>
-									<th scope="col" class="sort" data-sort="price">Promo-code</th>
-									<th scope="col" class="sort" data-sort="size">Win text</th>
-									<th scope="col">Win ratio %</th>
-									<th scope="col">Action</th>
+									<th scope="col" class="sort" data-sort="product">
+									
+									</th>
+									<th scope="col" class="sort" data-sort="product"><span class="badge badge-dot mr-4">
+										<i class="bg-"></i>
+										<span class="status">label</span>
+										</span>
+									</th>
+									<th scope="col" class="sort" data-sort="price"><span class="badge badge-dot mr-4">
+										<i class="bg-"></i>
+										<span class="status">Coupon</span>
+										</span>
+									</th>
+									<th scope="col" class="sort" data-sort="size"><span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">Win ratio</span>
+										</span>
+									</th>
+									<th scope="col"><span class="badge badge-dot mr-4">
+										  <i class="bg-"></i>
+										  <span class="status">Win text</span>
+										</span>
+									</th>
 								</tr>
 							</thead>
 							<tbody class="list">
-								
 								<tr>
-									<th scope="row">
-										<div class="media align-items-center">	
-										<span class="badge badge-dot mr-4">
-										  <i class="bg-"></i>
-										  <span class="status">Wheel label</span>
-										</span>
-										</div>
-									</th>
+									<td>1</td>
 									<td class="price">
-										WHL100
+										<input type="text" class="form-control" value="Free shipping">
 									</td>
 									<td>
-										<span class="badge badge-dot mr-4">
-										  <i class="bg-"></i>
-										  <span class="status">No lucky today</span>
-										</span>
+										<input type="text" class="form-control"value="EXAMPLE">
 									</td>
 									<td>
-										<span class="badge badge-dot mr-4">
-										  <i class="bg-"></i>
-										  <span class="status">2</span>
-										</span>
+										<input type="number" class="form-control" value="1">
 									</td>
-									<td class="text-right">
-										<!-- Actions -->
-										<div class="actions ml-3">
-											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Quick view">
-												<i class="fas fa-external-link-alt"></i>
-											</a>
-											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Move to trash">
-												<i class="fas fa-times"></i>
-											</a>
-										</div>
-									</td>										
+									<td>
+										<input type="text" class="form-control" value="Free Shipping">
+									</td>									
 								</tr>
 								<tr>
-									<th scope="row">
-										<div class="media align-items-center">	
-										<span class="badge badge-dot mr-4">
-										  <i class="bg-"></i>
-										  <span class="status">Wheel label</span>
-										</span>
-										</div>
-									</th>
+								<td>2</td>
 									<td class="price">
-										WHL100
+										<input type="text" class="form-control" value="So close!">
 									</td>
 									<td>
-										<span class="badge badge-dot mr-4">
-										  <i class="bg-"></i>
-										  <span class="status">No lucky today</span>
-										</span>
+										(Losing)
 									</td>
 									<td>
-										<span class="badge badge-dot mr-4">
-										  <i class="bg-"></i>
-										  <span class="status">2</span>
-										</span>
+										-
 									</td>
-									<td class="text-right">
-										<!-- Actions -->
-										<div class="actions ml-3">
-											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Quick view">
-												<i class="fas fa-external-link-alt"></i>
-											</a>
-											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Move to trash">
-												<i class="fas fa-times"></i>
-											</a>
-										</div>
-									</td>										
+									<td>
+										-
+									</td>									
 								</tr>
 								<tr>
-									<th scope="row">
-										<div class="media align-items-center">	
-										<span class="badge badge-dot mr-4">
-										  <i class="bg-"></i>
-										  <span class="status">Wheel label</span>
-										</span>
-										</div>
-									</th>
+								<td>3</td>
 									<td class="price">
-										WHL100
+										<input type="text" class="form-control" value="10% Off">
 									</td>
 									<td>
-										<span class="badge badge-dot mr-4">
-										  <i class="bg-"></i>
-										  <span class="status">No lucky today</span>
-										</span>
+										<input type="text" class="form-control"value="EXAMPLE">
 									</td>
 									<td>
-										<span class="badge badge-dot mr-4">
-										  <i class="bg-"></i>
-										  <span class="status">2</span>
-										</span>
-									</td>	
-									<td class="text-right">
-										<!-- Actions -->
-										<div class="actions ml-3">
-											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Quick view">
-												<i class="fas fa-external-link-alt"></i>
-											</a>
-											<a href="#" class="action-item mr-2" data-toggle="tooltip" title="Move to trash">
-												<i class="fas fa-times"></i>
-											</a>
-										</div>
+										<input type="number" class="form-control" value="1">
+									</td>
+									<td>
+										<input type="text" class="form-control" value="10% Off">
+									</td>									
+								</tr>
+								<tr>
+								<td>4</td>
+									<td class="price">
+										<input type="text" class="form-control" value="No luck today.">
+									</td>
+									<td>
+										(Losing)
+									</td>
+									<td>
+										-
+									</td>
+									<td>
+										-
+									</td>									
+								</tr>
+								<tr>
+								<td>5</td>
+									<td class="price">
+										<input type="text" class="form-control" value="20% Off">
+									</td>
+									<td>
+										<input type="text" class="form-control"value="EXAMPLE">
+									</td>
+									<td>
+										<input type="number" class="form-control" value="1">
+									</td>
+									<td>
+										<input type="text" class="form-control" value="20% Off">
+									</td>									
+								</tr>
+								<tr>
+								<td>6</td>
+									<td class="price">
+										<input type="text" class="form-control" value="Sorry, try again!">
+									</td>
+									<td>
+										(Losing)
+									</td>
+									<td>
+										-
+									</td>
+									<td>
+										-
+									</td>									
+								</tr>
+								<tr>
+								<td>7</td>
+									<td class="price">
+										<input type="text" class="form-control" value="30% Off">
+									</td>
+									<td>
+										<input type="text" class="form-control"value="EXAMPLE">
+									</td>
+									<td>
+										<input type="number" class="form-control" value="1">
+									</td>
+									<td>
+										<input type="text" class="form-control" value="30% Off">
+									</td>									
+								</tr>
+								<tr>
+								<td>8</td>
+									<td class="price">
+										<input type="text" class="form-control" value="Next time!">
+									</td>
+									<td>
+										(Losing)
+									</td>
+									<td>
+										-
+									</td>
+									<td>
+										-
+									</td>									
+								</tr>
+								<tr>
+								<td>9</td>
+									<td class="price">
+										<input type="text" class="form-control" value="40% Off">
+									</td>
+									<td>
+										<input type="text" class="form-control"value="EXAMPLE">
+									</td>
+									<td>
+										<input type="number" class="form-control" value="1">
+									</td>
+									<td>
+										<input type="text" class="form-control" value="40% Off">
+									</td>									
+								</tr>
+								<tr>
+								<td>10</td>
+									<td class="price">
+										<input type="text" class="form-control" value="Almost!">
+									</td>
+									<td>
+										(Losing)
+									</td>
+									<td>
+										-
+									</td>
+									<td>
+										-
+									</td>									
+								</tr>
+								<tr>
+								<td>11</td>
+									<td class="price">
+										<input type="text" class="form-control" value="50% Off">
+									</td>
+									<td>
+										<input type="text" class="form-control"value="EXAMPLE">
+									</td>
+									<td>
+										<input type="number" class="form-control" value="1">
+									</td>
+									<td>
+										<input type="text" class="form-control" value="50% Off">
+									</td>									
+								</tr>
+								<tr>
+								<td>12</td>
+									<td class="price">
+										<input type="text" class="form-control" value="Not quite.">
+									</td>
+									<td>
+										(Losing)
+									</td>
+									<td>
+										-
+									</td>
+									<td>
+										-
 									</td>									
 								</tr>
 								</tbody>
@@ -432,6 +665,10 @@
 						</div>
                         </div>
                       </div>
+					   <div class="modal-footer">
+						  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						  <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+						</div>
                     </div>
                   </form>
                 </div>

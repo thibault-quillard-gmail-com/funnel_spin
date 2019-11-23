@@ -4,7 +4,7 @@ import { HttpClientModule }    from '@angular/common/http';
 import { HttpModule }    from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';   /* App routings */
 import { ChartsModule } from 'ng2-charts';
-
+import { CKEditorModule } from 'ckeditor4-angular';
 
 import { AuthGuard } from './auth.guard';    /* Auth Service */
 import { Configuration } from './app.configuration';
@@ -50,7 +50,8 @@ import { SubscriptionsComponent } from './profile/subscriptions/subscriptions.co
     AppRoutingModule,
 	HttpClientModule,
 	HttpModule,
-	ChartsModule
+	ChartsModule,
+	CKEditorModule
   ],
   providers: [AuthGuard,Configuration],
   bootstrap: [AppComponent]

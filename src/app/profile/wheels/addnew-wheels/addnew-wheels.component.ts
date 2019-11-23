@@ -9,7 +9,7 @@ import { Label } from 'ng2-charts';
 export class AddnewWheelsComponent implements OnInit {
 
 public barChartOptions: ChartOptions = {
-	responsive: true,
+	responsive: true,	
 	// We use these empty structures as placeholders for dynamic theming.
 	scales: { xAxes: [{}], yAxes: [{}] },
 	};
@@ -22,6 +22,7 @@ public barChartOptions: ChartOptions = {
 	{ data: [28, 48, 40, 19, 86, 27, 90], label: 'Signup' }
 	];
 
+public editorValue = 'ds';
 	constructor() { }
 
 	ngOnInit() {
