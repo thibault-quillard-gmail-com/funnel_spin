@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpModule }    from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';   /* App routings */
 import { ChartsModule } from 'ng2-charts';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { NgxWheelModule } from 'ngx-wheel';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthGuard } from './auth.guard';    /* Auth Service */
 import { Configuration } from './app.configuration';
@@ -51,7 +54,11 @@ import { SubscriptionsComponent } from './profile/subscriptions/subscriptions.co
 	HttpClientModule,
 	HttpModule,
 	ChartsModule,
-	CKEditorModule
+	CKEditorModule,
+	NgxWheelModule,
+	FormsModule,
+	ReactiveFormsModule,
+	CommonModule
   ],
   providers: [AuthGuard,Configuration],
   bootstrap: [AppComponent]

@@ -21,8 +21,11 @@ public barChartOptions: ChartOptions = {
 	{ data: [65, 59, 80, 81, 56, 55, 40], label: 'View' },
 	{ data: [28, 48, 40, 19, 86, 27, 90], label: 'Signup' }
 	];
-
-public editorValue = 'ds';
+	
+	// widget variables
+	public headingvalue = 'Do you want to win? ';
+	public labelvalue = 'We dont sell your data';
+	public buttonvalue = 'Yes, I want to win';
 	constructor() { }
 
 	ngOnInit() {
@@ -40,7 +43,7 @@ public editorValue = 'ds';
 	public randomize(): void {
 	this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
 	}
-  
+
 	copyInputMessage(inputElement){
 		inputElement.select();
 		document.execCommand('copy');

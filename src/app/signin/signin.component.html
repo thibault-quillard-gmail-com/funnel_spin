@@ -28,16 +28,20 @@
                     <!-- <p class="text-muted mb-0">Sign in to your account to continue.</p> -->
                   </div>
                   <span class="clearfix"></span>				  
-                  <form role="form">
+                   <form  role="form" [formGroup]="loginForm">
                     <div class="form-group">
                       <label class="form-control-label">Email address</label>
                       <div class="input-group input-group-merge">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input type="email" class="form-control" id="input-email" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="input-email" formControlName="email" name="email" placeholder="name@example.com">
                       </div>
                     </div>
+					
+		           <div class="alert alert-danger" *ngIf="loginForm.get('email').hasError('maxlength') && loginForm.get('email').touched">
+		              please enter a email
+		             </div>
                     <div class="form-group mb-4">
                       <div class="d-flex align-items-center justify-content-between">
                         <div>
@@ -51,7 +55,7 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" class="form-control" id="input-password" placeholder="Password">
+                        <input type="password" class="form-control" id="input-password" placeholder="Password" formControlName="password"  name="password">
                         <div class="input-group-append">
                           <span class="input-group-text">
                             <i class="fas fa-eye"></i>
@@ -59,8 +63,11 @@
                         </div>
                       </div>
                     </div>
+					<div class="alert alert-danger" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+		          please enter password
+		          </div>
                     <div class="mt-4">
-						<button routerLink="/manage-wheels" type="button" class="btn btn-sm btn-primary btn-icon" style="width:100%">
+						<button  type="submit" class="btn btn-sm btn-primary btn-icon" style="width:100%" (click) = "onSubmit()" >
 							<span class="btn-inner--text"> Sign in</span>
 							<span class="btn-inner--icon"><i class="fas fa-long-arrow-alt-right"></i></span>
 						</button>

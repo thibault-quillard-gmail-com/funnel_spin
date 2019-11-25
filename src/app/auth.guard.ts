@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
 import { Http, RequestOptions, Response} from '@angular/http';
-import { catchError, retry } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
-import { HttpErrorResponse } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { Configuration } from './app.configuration';
+import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthGuard implements CanActivate {
 	public authToken;
@@ -25,10 +20,14 @@ export class AuthGuard implements CanActivate {
 		return false;
 	} 
   
-	loginUser(){
-		// console.log(this.dataUrl);
-		// return this.http.post(this.dataUrl+'api/getdata', this.headersforapi)
-		// .map( response => response.text());
+	loginUser(student){
+		return this.http.post('http://localhost:3000/login',student)
+		.map(response => response.text());
+	}
+		
+	Signup(students){
+	   return this.http.post('http://localhost:3000/signup',students);	    
+	}
+		
 	}
   
-}

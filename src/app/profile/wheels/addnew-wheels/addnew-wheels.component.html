@@ -182,6 +182,7 @@
 							<div class="row">
 								<div class="col-md-8">
 								<button class="btn btn-sm btn-secondary" type="button" data-toggle="modal" data-target="#modal-change-username"><i class="fas fa-edit"></i> Configure slices</button>
+								<!-- <button class="btn btn-sm btn-secondary" id="toggle-panel">Show spin wheel</button> -->
 								</div>
 							</div>
 							<div class="row mt-3">
@@ -303,9 +304,17 @@
 							</div>
 						</div>
 							<div class="card-body">
-								<h5>Text</h5>
+								<h5>Update Heading</h5>
 								<div class="card-text row">
-									<ckeditor ngModel="editorValue"></ckeditor>
+									<ckeditor ngModel="editorValue" [(ngModel)]="headingvalue"></ckeditor>
+								</div>
+								<h5 class="mt-3">Update label</h5>
+								<div class="card-text row">
+									<textarea [(ngModel)]="labelvalue" class="form-control" placeholder="Type here"></textarea>
+								</div>
+								<h5 class="mt-3">Update button text</h5>
+								<div class="card-text row">
+									<textarea  class="form-control" [(ngModel)]="buttonvalue" placeholder="Type here"></textarea>
 								</div>
 							</div>
 						</div>
@@ -314,20 +323,74 @@
 						</div>
 					
 					</div>
-					<div class="col-md-4">
-					
+					<div class="col-md-4 mt-5">
+					<img src="./assets/spin.png">
+					<!-- <div class="wheel-panel-wrapper visible" style="display:block">
+						<div class="wheel-dimmer"></div>
+						  <div class="wheel-panel">
+							<div class="wheel-panel__content">
+							  <div class="wheel-panel-section wheel-panel__enter-email">
+								<div>
+								  <h3 class="header">
+									Special bonus unlocked!
+								  </h3>
+								  <p>
+									You have a chance to win a nice big fat discount. Are you
+									feeling lucky? Give it a spin.
+								  </p>
+								  <form class="wheel-panel__form">
+									<input
+									  class="input"
+									  type="email"
+									  name="email"
+									  placeholder="Please enter your email"
+									  required
+									/>
+									<button type="submit" class="button" id="spin-button">
+									  Try your luck
+									</button>
+								  </form>
+								</div>
+							  </div>
+							  <div class="wheel-panel-section wheel-panel__thank-you">
+								<h3 class="header promo-name"></h3>
+								<p>
+								  Don't forget to use the discount code at checkout! Your discount
+								  code is:
+								</p>
+								<input class="promo input" name="promo" readonly />
+								<button class="use-promo-button button">
+								  Continue & Use discount
+								</button>
+							  </div>
+							  <div class="wheel-panel__close">
+								<button type="button">
+								  Close
+								  <svg class="icon" viewBox="0 0 24 24">
+									<path
+									  style="fill:currentColor"
+									  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+									/>
+								  </svg>
+								</button>
+							  </div>
+							</div>
+							<div class="wheel-panel__canvas_wrapper">
+							  <canvas class="wheel-panel__canvas" id="spin-wheel-canvas"></canvas>
+							</div>
+						  </div>
+						</div> -->
 					</div>
 					<div class="col-md-4">
-					<form>
-					  <!-- Title -->             
-					  <div class="mt-1">
-							<h4 class="mb-1 text-center">Do you want to win?</h4>
-							<p class="text-sm text-muted mb-0 text-center">We dont sell your data</p>
+					<form>          
+					  <div class="mt-5">
+							<h4 class="mb-1 text-center"> <span [innerHTML]="headingvalue"></span></h4>
+							<p class="text-sm text-muted mb-0 text-center">{{labelvalue}}</p>
 							<div class="form-group mt-3">
 							  <input class="form-control" type="text" placeholder="Email">
 							</div>
 							<div class="form-group">
-							  <button class="form-control btn btn-info" type="button">Yes, I want to win</button>
+							  <button class="form-control btn btn-info" type="button">{{buttonvalue}}</button>
 							</div>
 					  </div> 
 					</form>
