@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-topbar.component.css']
 })
 export class ProfileTopbarComponent implements OnInit {
-
+loginuser = localStorage.getItem('loginuseremail');
   constructor() { }
 
   ngOnInit() {

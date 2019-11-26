@@ -10,6 +10,7 @@ import { NgxWheelModule } from 'ngx-wheel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthGuard } from './auth.guard';    /* Auth Service */
+import { WheelsService } from './services/wheels.service';    /* Auth Service */
 import { Configuration } from './app.configuration';
 /* All components */
 import { AppComponent } from './app.component';
@@ -60,7 +61,7 @@ import { SubscriptionsComponent } from './profile/subscriptions/subscriptions.co
 	ReactiveFormsModule,
 	CommonModule
   ],
-  providers: [AuthGuard,Configuration],
+  providers: [AuthGuard,Configuration,WheelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

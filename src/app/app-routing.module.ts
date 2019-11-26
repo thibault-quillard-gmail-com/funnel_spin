@@ -25,7 +25,7 @@ const routes: Routes = [
 {path:'billing', component:BillingdetailsComponent, canActivate: [AuthGuard]},
 {path:'payment-history', component:PaymentHistoryComponent, canActivate: [AuthGuard]},
 {path:'manage-wheels', component:WheelsComponent, canActivate: [AuthGuard]},
-{path:'addnew-wheels', component:AddnewWheelsComponent, canActivate: [AuthGuard]},
+{path:'addnew-wheels/:id', component:AddnewWheelsComponent, canActivate: [AuthGuard]},
 {path:'subscription', component:SubscriptionsComponent, canActivate: [AuthGuard]},
 { path: '**',  component: Page404Component },
 ];

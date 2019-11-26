@@ -10,39 +10,39 @@ import { Router,Params,ActivatedRoute} from  '@angular/router';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-           
-	loginForm : FormGroup;   
-	responses:any;
-	 constructor(
+    responses:any;       
+	loginForm : FormGroup; 
+	errormessage:any;
+	error:boolean;
+	constructor(
 		private _auth: AuthGuard,
 		private formBuilder:FormBuilder,
 		private router: Router,
 		private routes: ActivatedRoute
-	    ) { }
+	) { }
 
-	ngOnInit() {		
-			this.loginForm = this.formBuilder.group({ 
-			email:  ['',[Validators.required, Validators.maxLength(6)]],
-			password: ['',[Validators.required, Validators.maxLength(30)]]
-		});  
-	}
+	ngOnInit() {
+		
+	this.loginForm = this.formBuilder.group({ 	
+		email: [null,Validators.required],
+		password: [null,Validators.required],
+	});  
+	 }
 	
 	onSubmit(){
-		console.log(this.loginForm.value);
 	    this._auth.loginUser(this.loginForm.value)
-		.subscribe(data => {		   
-		   // console.log(data);
-		   this.responses = JSON.parse(data);
-		   console.log(this.responses.response);
-		   if(data){
-			 this.router.navigate(['manage-wheels']);
-		   }		   
-		   else{
-			console.log("email and password is not match");
-		   }
+		.subscribe(data => {	
+			this.responses = JSON.parse(data);
+			if(this.responses.errorType == 'success' && this.responses.status == true){
+				setTimeout(()=>{
+					localStorage.setItem('loginuseremail', this.responses.data[0].email);
+				    this.router.navigate(['manage-wheels']);
+				},2000)
+			}		 
+			else{
+				this.error = true;
+				this.errormessage=this.responses.message;
+			}
 		});
 	}
-	
 }
-
-

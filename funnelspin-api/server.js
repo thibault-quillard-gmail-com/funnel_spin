@@ -44,61 +44,56 @@ app.post('/login',function(req,res){
     var email=req.body.email;
     var password=req.body.password;
     dbConn.query('SELECT * FROM users WHERE email = ?',[email], function (error, results, fields) {
-      if (error) {
-          res.json({
-            status:false,
-            message:'there are some error with query'
-            })
-      }else{
         if(results.length >0){
             if(password==results[0].password){
                 res.json({
                     status:true,
-                    message:'successfully authenticated'
+					errorType:'success',
+                    message:'successfully authenticated',
+					data:results
                 })
             }else{
                 res.json({
                   status:false,
-                  message:"Email and password does not match"
+				  errorType:'notmatch',
+                  message:"Email or password does not match",
+				  data:''
                  });
-            }
-         
+            }         
         }
         else{
           res.json({
-              status:false,    
-            message:"Email does not exits"
+			status:false,  
+			errorType:'notexist',			
+			message:"Email does not exits",
+			 data:''
           });
         }
-      }
     });
 });
 
 
 // Registration
-app.post('/signup',function(req,res){
-  
-    var users={
-        
-        "email":req.body.email,
-        "password":req.body.password,
-		"cpassword":req.body.cpassword
-        
+app.post('/signup',function(req,res){  
+    var users={        
+        "Email":req.body.email,
+        "Password":req.body.password        
     }
     dbConn.query('INSERT INTO users SET ?',users, function (error, results, fields) {
-      if (error) {
-        res.json({
-            status:false,
-            message:'there are some error with query'
-        })
-      }else{
+      // if (error) {
+        // res.json({
+            // status:false,
+            // message:'there are some error with query'
+        // })
+      // }else{
           res.json({
             status:true,
             data:results,
             message:'user registered sucessfully'
         })
-    }
+    //}
 }); 
+})
 // Retrieve all users 
 app.get('/users', function (req, res) {
     dbConn.query('SELECT * FROM users', function (error, results, fields) {
@@ -116,3 +111,26 @@ app.post('/addspin-results', function (req, res) {
     });
 	dbConn.end();
 });
+
+// get wheeldetail
+app.get('/getWheelDetail', function (req, res) {
+    dbConn.query('select A.*, B.label, B.promocode, B.winratio, B.wintext, B.wheelsettingID from wheelsetting A LEFT OUTER JOIN slices B on A.ID = B.wheelsettingID', function (error, results, fields) {
+        if (error) throw error;
+        return res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+	dbConn.end();
+});
+
+// Add spin result after wheel spin
+app.get('/getAllWheels', function (req, res) {
+    dbConn.query('SELECT m.*, \
+       (SELECT COUNT(*) \
+          FROM spinresult WHERE wheelsettingid = m.ID) emailcount\
+  FROM wheelsetting m', function (error, results, fields) {
+        if (error) throw error;
+        return res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+	dbConn.end();
+});
+
+ module.exports = app;
