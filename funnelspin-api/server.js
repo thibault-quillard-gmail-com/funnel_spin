@@ -1,5 +1,4 @@
 require('dotenv').config()
-
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -9,13 +8,12 @@ app.use(bodyParser.json())
 
 // API request headers
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
-
 // Port 8080 for Google App Engine
 app.set('port', process.env.PORT || 8080);
 app.listen(8080);
@@ -100,7 +98,6 @@ app.get('/users', function (req, res) {
         if (error) throw error;
         return res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
     });
-	dbConn.end();
 });
 
 // Add spin result after wheel spin
@@ -109,7 +106,6 @@ app.post('/addspin-results', function (req, res) {
         if (error) throw error;
         return res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
     });
-	dbConn.end();
 });
 
 // get wheeldetail
@@ -118,10 +114,9 @@ app.get('/getWheelDetail', function (req, res) {
         if (error) throw error;
         return res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
     });
-	dbConn.end();
 });
 
-// Add spin result after wheel spin
+// get all wheels
 app.get('/getAllWheels', function (req, res) {
     dbConn.query('SELECT m.*, \
        (SELECT COUNT(*) \
@@ -130,7 +125,28 @@ app.get('/getAllWheels', function (req, res) {
         if (error) throw error;
         return res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
     });
-	dbConn.end();
+});
+
+// Add/update wheel details
+app.post('/updatewheelsetting', function (req, res) {
+	 var data={        
+        "CampaignName":req.body.CampaignName,
+        "wheelspining":req.body.wheelspining,        
+        "email":req.body.email,        
+        "TitleText":req.body.TitleText,        
+        "SubTitleText":req.body.SubTitleText,        
+        "FormFieldText":req.body.FormFieldText,        
+        "ButtonText":req.body.ButtonText,        
+        "Slice_one_color":req.body.Slice_one_color,        
+        "Slice_two_color":req.body.Slice_two_color,        
+        "Slice_three_color":req.body.Slice_three_color,        
+        "Slice_four_color":req.body.Slice_four_color,        
+        "UserID":req.body.UserID        
+    }
+    dbConn.query('INSERT INTO wheelsetting SET ?',data, function (error, results, fields) {
+        if (error) throw error;
+        return res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
 });
 
  module.exports = app;
