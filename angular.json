@@ -32,6 +32,7 @@
 			  "src/assets/libs/select2/dist/css/select2.min.css",
 			  "src/assets/libs/flatpickr/dist/flatpickr.min.css",
               "src/assets/css/purpose.css",
+			  "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
 			"src/assets/js/purpose.core.js",

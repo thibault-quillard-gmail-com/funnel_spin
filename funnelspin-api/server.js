@@ -1,4 +1,5 @@
 require('dotenv').config()
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -14,6 +15,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
+
 // Port 8080 for Google App Engine
 app.set('port', process.env.PORT || 8080);
 app.listen(8080);
@@ -70,28 +72,6 @@ app.post('/login',function(req,res){
     });
 });
 
-
-// Registration
-app.post('/signup',function(req,res){  
-    var users={        
-        "Email":req.body.email,
-        "Password":req.body.password        
-    }
-    dbConn.query('INSERT INTO users SET ?',users, function (error, results, fields) {
-      // if (error) {
-        // res.json({
-            // status:false,
-            // message:'there are some error with query'
-        // })
-      // }else{
-          res.json({
-            status:true,
-            data:results,
-            message:'user registered sucessfully'
-        })
-    //}
-}); 
-})
 // Retrieve all users 
 app.get('/users', function (req, res) {
     dbConn.query('SELECT * FROM users', function (error, results, fields) {
@@ -116,7 +96,7 @@ app.get('/getWheelDetail', function (req, res) {
     });
 });
 
-// get all wheels
+// Add spin result after wheel spin
 app.get('/getAllWheels', function (req, res) {
     dbConn.query('SELECT m.*, \
        (SELECT COUNT(*) \
@@ -127,26 +107,76 @@ app.get('/getAllWheels', function (req, res) {
     });
 });
 
-// Add/update wheel details
-app.post('/updatewheelsetting', function (req, res) {
-	 var data={        
-        "CampaignName":req.body.CampaignName,
-        "wheelspining":req.body.wheelspining,        
-        "email":req.body.email,        
-        "TitleText":req.body.TitleText,        
-        "SubTitleText":req.body.SubTitleText,        
-        "FormFieldText":req.body.FormFieldText,        
-        "ButtonText":req.body.ButtonText,        
-        "Slice_one_color":req.body.Slice_one_color,        
-        "Slice_two_color":req.body.Slice_two_color,        
-        "Slice_three_color":req.body.Slice_three_color,        
-        "Slice_four_color":req.body.Slice_four_color,        
-        "UserID":req.body.UserID        
-    }
-    dbConn.query('INSERT INTO wheelsetting SET ?',data, function (error, results, fields) {
-        if (error) throw error;
-        return res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+app.post('/signup',function(req,res){
+    var email=req.body.email;
+	var password= req.body.password;
+   
+    dbConn.query('SELECT * FROM users WHERE email = ?',[email], function (error, results, fields) {
+      // if (error) {
+          // res.json({
+            // status:false,
+            // message:'there are some error with query'
+            // })
+		// }else{
+        if(results.length >0 && email==results[0].email){
+			res.json({
+				status:true,
+				message:'email already exist'
+			})			
+            }else{
+			var users={        
+				"email":req.body.email,
+				"password":req.body.password
+			}
+		dbConn.query('insert into users (email, password) values("'+req.body.email+'", "'+req.body.password+'")', function (error, results, fields) {
+		  if (error) {
+			res.json({
+				status:false,
+				message:error
+			})
+			}else{
+				  res.json({
+					status:true,
+					data:results,
+					message:'user registered sucessfully'
+				})
+			}
+		});
+		}         
+	// }
     });
 });
 
+// app.post('/signup',(req, res) => {
+  // let data = {email: req.body.email, password: req.body.password};
+   // let sql = "INSERT INTO users SET ?";
+   // console.log(sql);
+   // let query = dbConn.query(sql, data,(err, results) => {
+     // if(err) throw err;
+     // res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+   // });
+ // });
+
+// Registration
+ // app.post('/signup',function(req,res){  
+    // var users={        
+       // "email":req.body.email,
+       // "password":req.body.password
+		
+   // }
+     // dbConn.query('INSERT INTO users(email, password) Values ("'+req.body.email+'", "'+req.body.password+'")', function (error, results) {
+       // // if (error) {
+         // // res.json({
+             // // status:false,
+             // // message:'there are some error with query'
+        // // })
+       // // }else{
+           // res.json({
+             // status:true,
+             // data:results,
+             // message:'user registered sucessfully'
+			// })
+		// // }
+	// }); 
+// })
  module.exports = app;

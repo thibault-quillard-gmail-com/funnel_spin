@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Headers, RequestOptions } from '@angular/http';
 @Injectable()
 export class Configuration {
-    public Server = 'https://funnel-spin-api.appspot.com';
+    // public Server = 'https://funnel-spin-api.appspot.com';
+    public Server = 'http://localhost:8080';
     public ApiUrl = '/';
     public ServerWithApiUrl = this.Server + this.ApiUrl;
 

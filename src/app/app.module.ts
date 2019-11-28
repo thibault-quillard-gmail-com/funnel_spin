@@ -8,6 +8,8 @@ import { ChartsModule } from 'ng2-charts';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { NgxWheelModule } from 'ngx-wheel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { ToastrModule } from 'ngx-toastr';
 
 import { AuthGuard } from './auth.guard';    /* Auth Service */
 import { WheelsService } from './services/wheels.service';    /* Auth Service */
@@ -59,7 +61,9 @@ import { SubscriptionsComponent } from './profile/subscriptions/subscriptions.co
 	NgxWheelModule,
 	FormsModule,
 	ReactiveFormsModule,
-	CommonModule
+	CommonModule,
+	BrowserAnimationsModule,
+	ToastrModule.forRoot()
   ],
   providers: [AuthGuard,Configuration,WheelsService],
   bootstrap: [AppComponent]
